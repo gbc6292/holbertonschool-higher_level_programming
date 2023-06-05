@@ -3,8 +3,8 @@ from calculator_1 import add, sub, mul, div
 
 
 if __name__ == "__main__":
-    a = 5
-    b = 10
+    a = 10
+    b = 5
     s = add(a, b)
     z = sub(a, b)
     m = mul(a, b)
