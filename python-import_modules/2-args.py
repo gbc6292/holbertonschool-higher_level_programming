@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import sys
-if __name__ == "__main++":
+if __name__ == "__main__":
     args = sys.argv[1:]
     counter = len(args)
     if counter == 0:
