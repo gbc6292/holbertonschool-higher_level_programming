@@ -6,10 +6,10 @@ if __name__ == "__main__":
     if counter == 0:
         print('{} arguments.'.format(counter))
     elif counter == 1:
-        print('{}: argument'.format(counter))
+        print('{} argument:'.format(counter))
         print(f'{counter}:', ''.join(args), end='')
     else:
-        print('{}: arguments'.format(counter), end='')
+        print('{} arguments:'.format(counter))
 
         for i, arg in enumerate(args, start=1):
-            print('{}: {}'.format(i, arg), end='')
+            print('{}: {}'.format(i, arg))
