@@ -6,9 +6,9 @@ if __name__ == "__main__":
     if counter == 0:
         print('{} arguments.'.format(counter))
     elif counter == 1:
-        print('{}: artument'.format(counter))
+        print('{}: argument'.format(counter))
     else:
-        print('{}: arguments'.format(counter))
+        print('{}: arguments'.format(counter), end='')
         print(f'{counter}:', ''.join(args), end='')
         for i, arg in enumerate(args, start=1):
             print('{}: {}'.format(i, arg), end='')
