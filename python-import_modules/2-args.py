@@ -7,7 +7,7 @@ if __name__ == "__main__":
         print('{} arguments.'.format(counter))
     elif counter == 1:
         print('{} argument:'.format(counter))
-        print(f'{counter}:', ''.join(args), end='')
+        print(f'{counter}:', ''.join(args))
     else:
         print('{} arguments:'.format(counter))
 
