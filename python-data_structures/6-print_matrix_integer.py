@@ -6,4 +6,8 @@ def print_matrix_integer(matrix=[[]]):
         if not row:
             print("")
         else:
-            print(''.join(str(element) for element in row))
+            for idx, element in enumerate(row):
+                if idx < len(row) - 1:
+                    print('{:d}'.format(element), end='')
+                else:
+                    print('{:d}'.format(element))
