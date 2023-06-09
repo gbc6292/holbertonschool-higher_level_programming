@@ -6,6 +6,7 @@ def safe_print_list(my_list=[], x=0):
             if count < x:
                 print(i, end="")
                 count += 1
+        print()
         return count
     except IndexError:
         print("x is bigger than my_list")
