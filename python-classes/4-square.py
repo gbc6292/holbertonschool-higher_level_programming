@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """ File that contain the definition of class Square """
 
+"""Initializing the class Square"""
+
 
 class Square:
 
