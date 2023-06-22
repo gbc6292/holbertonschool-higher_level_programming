@@ -1,0 +1,67 @@
+**********************************************************************
+File "my_module.py", line X, in __main__
+Failed example:
+    bg = BaseGeometry()
+    bg.area()
+Exception raised:
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+**********************************************************************
+File "my_module.py", line X, in __main__
+Failed example:
+    bg = BaseGeometry()
+    bg.area()
+Exception raised:
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+**********************************************************************
+File "my_module.py", line X, in __main__
+Failed example:
+    bg = BaseGeometry()
+    bg.integer_validator("my_int", 12)
+Exception raised:
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be greater than 0
+**********************************************************************
+File "my_module.py", line X, in __main__
+Failed example:
+    bg = BaseGeometry()
+    bg.integer_validator("width", 89)
+Exception raised:
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be greater than 0
+**********************************************************************
+File "my_module.py", line X, in __main__
+Failed example:
+    bg = BaseGeometry()
+    bg.integer_validator("name", "John")
+Exception raised:
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+**********************************************************************
+File "my_module.py", line X, in __main__
+Failed example:
+    bg = BaseGeometry()
+    bg.integer_validator("age", 0)
+Exception raised:
+    Traceback (most recent call last):
+        ...
+    TypeError: age must be greater than 0
+**********************************************************************
+File "my_module.py", line X, in __main__
+Failed example:
+    bg = BaseGeometry()
+    bg.integer_validator("distance", -4)
+Exception raised:
+    Traceback (most recent call last):
+        ...
+    TypeError: distance must be greater than 0
+**********************************************************************
+1 items had failures:
+   7 of   9 in __main__
+***Test Failed*** 7 failures.
