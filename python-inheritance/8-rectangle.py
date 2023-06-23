@@ -19,20 +19,12 @@ class BaseGeometry():
 
 
 class Rectangle(BaseGeometry):
-    """A child class from Base Geometry"""
+    """A child class from BaseGeometry"""
 
     def __init__(self, width, height):
-        """Creating instance for width and height
-        and validate that the argument are integers"""
+        """Set width and height and validate
+        that the argument are positive integers"""
         self.integer_validator('width', width)
         self.integer_validator('height', height)
         self.__width = width
         self.__height = height
-
-    def area(self):
-        return (self.__width * self.__height)
-
-    def __str__(self):
-        string = "[Rectangle] "
-        string += str(self.__width + '/' + str(self.__height))
-        return string
