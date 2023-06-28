@@ -16,47 +16,63 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-    def testget_width(self):
+    @property
+    def test_width(self):
         """Getter for width"""
         return self.__width
 
-    def testset_width(self, value):
+    @test_width.setter
+    def test_width(self, value):
         """Setter for width"""
+        if not isinstance(value, int):
+            raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("Width must be greater than zero.")
+            raise ValueError("width must be > 0")
         self.__width = value
 
-    def testget_height(self):
+    @property
+    def test_height(self):
         """Getter for height"""
 
         return self.__height
 
-    def testset_height(self, value):
+    @test_height.setter
+    def test_height(self, value):
         """Setter for width"""
+        if not isinstance(value, int):
+            raise TypeError("height must be an integer")
         if value <= 0:
-            raise ValueError("Height must be greater than zero")
+            raise ValueError("height must be > 0")
         self.__height = value
 
-    def testget_x(self):
+    @property
+    def test_x(self):
         """Getter for x"""
 
         return self.__x
 
-    def testset_x(self, value):
+    @test_x.setter
+    def test_x(self, value):
         """setter for x"""
+        if not isinstance(value, int):
+            raise TypeError("x must be an integer")
         if value < 0:
-            raise ValueError("x can't be negative")
+            raise ValueError("x must be >= 0")
         self.__x = value
 
-    def testget_y(self):
+    @property
+    def test_y(self):
         """Getter for y"""
 
         return self.__y
 
-    def testset_y(self, value):
+    @test_y.setter
+    def test_y(self, value):
         """setter for y"""
+        if not isinstance(value, int):
+            raise TypeError("y must be an integer")
         if value < 0:
-            raise ValueError("y can't be negative")
+            raise ValueError("y must be >= 0")
 
         self.__y = value
 
