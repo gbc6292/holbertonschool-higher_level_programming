@@ -9,6 +9,7 @@ class Rectangle(unittest.TestCase):
     """Rectangle Class"""
 
     def test__init__(self, width, height, x=0, y=0, id=None):
+        """Attributes of the class rectangle class"""
         self.__width = width
         self.__height = height
         self.__x = x
