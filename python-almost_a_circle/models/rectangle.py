@@ -80,12 +80,21 @@ class Rectangle(Base):
         for i in range(self.__y):
             print()
         for i in range(self.__height):
-            for j in range(self.__x):
+            for idx in range(self.__x):
                 print(" ", end="")
-            for j in range(self.__width):
+            for idx in range(self.__width):
                 print("#", end="")
             print()
 
     def __str__(self):
         """Format of representation of Rectangle"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.height}"
+
+    def update(self, *args):
+        """Assign arguments to Rectangle attributes"""
+
+        self.id = args[0]
+        self.__width = args[1]
+        self.__height = args[2]
+        self.__x = args[3]
+        self.__y = args[4]
