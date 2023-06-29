@@ -90,11 +90,14 @@ class Rectangle(Base):
         """Format of representation of Rectangle"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.height}"
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Assign arguments to Rectangle attributes"""
 
-        self.id = args[0]
-        self.__width = args[1]
-        self.__height = args[2]
-        self.__x = args[3]
-        self.__y = args[4]
+        attributes = ["id", "width", "height", "x", "y"]
+        if args:
+            for attr, value in zip(attributes, args):
+                setattr(self, attr, value)
+        else:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
