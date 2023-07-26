@@ -1,4 +1,4 @@
---Script that lists all databases
+-- Script that lists all databases
 
 -- of MySQL server
 
