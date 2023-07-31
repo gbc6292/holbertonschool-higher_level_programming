@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 
-"""This modlists all states with a name starting with N (upper N)
-from the database hbtn_0e_0_usaule"""
+"""This script takes in an argument and displays
+all values in the states table of hbtn_0e_0_usa
+where name matches the argument."""
+
 import sys
 import MySQLdb
 
@@ -16,14 +18,15 @@ def my_states_filter(username, password, database_name, state_name_searched):
             passwd=password,
             db=database_name,
             host='localhost',
-            port=3306
         )
 
         cur = conn.cursor()
 
-        query = "Select * FROM states " \
-                "WHERE name = %s' " \
-                "ORDER BY id ASC".format(state_name_searched)
+        query = """SELECT *
+                FROM states
+                WHERE name = '{}'
+                ORDER BY id ASC
+            """.format(state_name_searched)
         cur.execute(query)
 
         rows = cur.fetchall()
@@ -43,12 +46,13 @@ def my_states_filter(username, password, database_name, state_name_searched):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 5:
         print("Usage: python script_name.py <username> <password> <db_name>")
         sys.exit(1)
 
     username = sys.argv[1]
     password = sys.argv[2]
     database_name = sys.argv[3]
+    state_name_searched = sys.argv[4]
 
-    states_filter(username, password, database_name)
+    my_states_filter(username, password, database_name, state_name_searched)
