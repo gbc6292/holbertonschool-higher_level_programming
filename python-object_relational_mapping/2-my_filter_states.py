@@ -25,7 +25,7 @@ def my_states_filter(username, password, database_name, state_name_searched):
 
         query = """SELECT *
                 FROM states
-                WHERE name = '{}'
+                WHERE BINARY name = '{}'
                 ORDER BY id ASC
             """.format(state_name_searched)
         cur.execute(query)
