@@ -21,7 +21,7 @@ def states_filter(username, password, database_name):
 
         cur = conn.cursor()
 
-        query = "Select * FROOM states WHERE name LIKE 'N%' ORDER BY id ASC"
+        query = "Select * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
         cur.execute(query)
 
         rows = cur.fetchall()
