@@ -18,6 +18,7 @@ def my_states_filter(username, password, database_name, state_name_searched):
             passwd=password,
             db=database_name,
             host='localhost',
+            port=3306
         )
 
         cur = conn.cursor()
@@ -47,7 +48,7 @@ def my_states_filter(username, password, database_name, state_name_searched):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python script_name.py <username> <password> <db_name>")
+        print("Usage: python my_filter_states.py <username> <password> <db_name> <state_name_searched>")
         sys.exit(1)
 
     username = sys.argv[1]
