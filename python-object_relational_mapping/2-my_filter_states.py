@@ -8,7 +8,7 @@ import MySQLdb
 """Function Definition"""
 
 
-def states_filter(username, password, database_name):
+def my_states_filter(username, password, database_name, state_name_searched):
     """ Setting connection to the MySQL server """
     try:
         conn = MySQLdb.connect(
@@ -23,7 +23,7 @@ def states_filter(username, password, database_name):
 
         query = "Select * FROM states " \
                 "WHERE name = %s' " \
-                "ORDER BY id ASC"
+                "ORDER BY id ASC".format(state_name_searched)
         cur.execute(query)
 
         rows = cur.fetchall()
