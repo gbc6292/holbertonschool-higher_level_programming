@@ -10,13 +10,13 @@ import MySQLdb
 """Function Definition"""
 
 
-def search_state_name(username, password, database_name, state_name_searched):
+def my_states_filter(state_name):
     """ Setting connection to the MySQL server """
     try:
         conn = MySQLdb.connect(
-            user=username,
-            passwd=password,
-            db=database_name,
+            user='username',
+            passwd='password',
+            db='database_name',
             host='localhost',
             port=3306
         )
@@ -25,10 +25,9 @@ def search_state_name(username, password, database_name, state_name_searched):
 
         query = """SELECT *
                 FROM states
-                WHERE BINARY name = '{}'
-                ORDER BY id ASC
-            """.format(state_name_searched)
-        cur.execute(query)
+                WHERE BINARY name = %s
+            """
+        cur.execute(query, (state_name,))
 
         rows = cur.fetchall()
 
@@ -47,14 +46,10 @@ def search_state_name(username, password, database_name, state_name_searched):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("""Usage: python my_filter_states.py <username>
-              <password> <db_name> <state_name_searched>""")
+    if len(sys.argv) != 2:
+        print("Usage: python_script.py <state_name>")
         sys.exit(1)
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database_name = sys.argv[3]
-    state_name_searched = sys.argv[4]
+    state_name = sys.argv[1]
 
-    my_states_filter(username, password, database_name, state_name_searched)
+    my_states_filter(state_name)
