@@ -25,8 +25,9 @@ def my_states_filter(state_name):
 
         query = """SELECT *
                 FROM states
-                WHERE BINARY name = %s
-            """
+                WHERE BINARY name = '{}'
+                ORDER BY id ASC
+            """.format(state_name)
         cur.execute(query, (state_name,))
 
         rows = cur.fetchall()
