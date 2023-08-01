@@ -6,22 +6,20 @@ from sys import argv
 import MySQLdb
 
 if __name__ == "__main__":
-    username = argv[1]
-    passwd = argv[2]
-    db = argv[3]
 
     conn = MySQLdb.connect(
         host='localhost',
         port=3306,
-        db=db,
-        user=username,
-        password=passwd
+        user=argv[1],
+        password=argv[2],
+        db=argv[3]
     )
 
     cur = conn.cursor()
-    query = """SELECT * FROM cities
-                ORDER BY id ASC""".format(argv[3])
-    cur.execute(query, argv[3])
+    query = """SELECT cities.id, cities.name, states.name
+                FROM cities ORDER BY id ASC \ JOIN states ON
+                cities.state_id = states.id ORDER BY cities.id"""
+    cur.execute(query)
 
     cities = cur.fetchall()
     for city in cities:
