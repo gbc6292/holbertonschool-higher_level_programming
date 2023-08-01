@@ -23,5 +23,5 @@ if __name__ == "__main__":
     for city in cities:
         print(city)
 
-        cur.close()
-        conn.close()
+    cur.close()
+    conn.close()
