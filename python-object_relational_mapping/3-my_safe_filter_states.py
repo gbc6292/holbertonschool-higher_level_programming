@@ -10,47 +10,45 @@ import MySQLdb
 """Function Definition"""
 
 
-def my_states_filter(state_name):
+def states_by_name(username, password, database, state_name):
     """ Setting connection to the MySQL server """
     try:
         conn = MySQLdb.connect(
-            user='username',
-            passwd='password',
-            db='database_name',
+            user=username,
+            passwd=password,
+            db=database,
             host='localhost',
             port=3306
         )
 
         cur = conn.cursor()
-
         query = """SELECT *
                 FROM states
-                WHERE BINARY name = '{}'
+                WHERE BINARY name = %s
                 ORDER BY id ASC
             """.format(state_name)
+
         cur.execute(query, (state_name,))
-
-        rows = cur.fetchall()
-
-        for row in rows:
+        results = cur.fetchall()
+        for row in results:
             print(row)
 
     except MySQLdb.Error as e:
         print('Error', e)
 
-    finally:
-        if 'cur' in locals():
-            cur.close()
-
-        if 'conn' in locals():
-            conn.close()
+        cur.close()
+        conn.close()
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python_script.py <state_name>")
+    if len(sys.argv) != 5:
+        print("""Usage: python_script.py <mysql_username>
+              <mysql_password> <database_name> <state_name>""")
         sys.exit(1)
 
-    state_name = sys.argv[1]
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = [4]
 
-    my_states_filter(state_name)
+    states_by_name(username, password, database, state_name)
