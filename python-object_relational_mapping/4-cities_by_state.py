@@ -16,8 +16,8 @@ if __name__ == "__main__":
     )
 
     cur = conn.cursor()
-    query = """SELECT cities.id, cities.name, states.name FROM cities ORDER BY id ASC \ JOIN states ON cities.state_id = states.id ORDER BY cities.id"""
-    cur.execute(query)
+    cur.execute("""SELECT cities.id, cities.name, states.name FROM cities \
+          JOIN states ON cities.state_id = states.id ORDER BY cities.id""")
 
     cities = cur.fetchall()
     for city in cities:
