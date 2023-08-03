@@ -23,5 +23,6 @@ if __name__ == "__main__":
 
     for state in state_to_delete:
         session.delete(state)
+    session.commit()
 
     session.close()
