@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Script tha lists the name of State objects passed as an argument from de database hbtn_0e_6_usa"""
+Script tha lists the name of State objects passed as an
+argument from de database hbtn_0e_6_usa"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -27,6 +28,6 @@ if __name__ == "__main__":
         print(f'{state.id}')
 
     else:
-        print('Not Found')
+        print('Not found')
 
     session.close()
