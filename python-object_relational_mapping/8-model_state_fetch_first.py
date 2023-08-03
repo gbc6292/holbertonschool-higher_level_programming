@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Script tha lists all States objects from de database hbtn_0e_6_usa"""
+Script tha lists the first States objects from de database hbtn_0e_6_usa"""
 
 import sys
 from sqlalchemy import create_engine
@@ -19,8 +19,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states = session.query(State).order_by(State.id)
+    first_state = session.query(State).order_by(State.id).first()
 
-    for state in states:
-        print(f'{state.id}: {state.name}')
+    if first_state:
+        print(f'{first_state.id}: {first_state.name}')
+
+    else:
+        print()
     session.close()
